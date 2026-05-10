@@ -6,18 +6,30 @@
 
   <title>Legal Notice - Sangaraju Ramachandra Raju</title>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
   <style>
+    :root {
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-margin-top: 20mm;
+      --page-margin-right: 22mm;
+      --page-margin-bottom: 20mm;
+      --page-margin-left: 22mm;
+      --text-color: #111;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      background: #e7e7e7;
-      color: #111;
+      padding: 0;
+      background: #e8e8e8;
+      color: var(--text-color);
       font-family: "Times New Roman", Times, serif;
+      font-size: 12pt;
+      line-height: 1.45;
     }
 
     .toolbar {
@@ -26,32 +38,32 @@
       z-index: 9999;
       background: #111;
       color: #fff;
-      padding: 14px 18px;
+      padding: 14px 16px;
       display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       font-family: Arial, sans-serif;
-      box-shadow: 0 3px 16px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 3px 14px rgba(0,0,0,0.25);
     }
 
     .toolbar button,
     .toolbar label {
-      border: 0;
+      border: none;
       background: #fff;
       color: #111;
-      padding: 10px 16px;
+      padding: 10px 15px;
       border-radius: 6px;
-      cursor: pointer;
       font-weight: 700;
       font-size: 14px;
+      cursor: pointer;
       font-family: Arial, sans-serif;
     }
 
     .toolbar button:hover,
     .toolbar label:hover {
-      background: #f2f2f2;
+      background: #f1f1f1;
     }
 
     .toolbar input[type="file"] {
@@ -60,94 +72,103 @@
 
     .toolbar-note {
       width: 100%;
-      max-width: 1060px;
-      font-size: 12px;
-      line-height: 1.45;
+      max-width: 1100px;
       text-align: center;
+      font-size: 12px;
+      line-height: 1.35;
       opacity: 0.9;
     }
 
-    .page-wrapper {
-      padding: 28px 10px;
+    .screen-shell {
+      padding: 28px 12px;
     }
 
-    #notice {
-      width: 210mm;
-      min-height: 297mm;
+    .page {
+      width: var(--page-width);
+      min-height: var(--page-height);
       margin: 0 auto;
       background: #fff;
-      padding: 22mm 22mm 20mm 22mm;
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.18);
-      font-size: 15.4px;
-      line-height: 1.43;
+      padding: var(--page-margin-top) var(--page-margin-right)
+               var(--page-margin-bottom) var(--page-margin-left);
+      box-shadow: 0 0 18px rgba(0,0,0,0.18);
+    }
+
+    .notice-content {
+      max-width: 100%;
     }
 
     .advocate-block {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .advocate-name {
-      font-size: 22px;
+      font-size: 17pt;
       font-weight: 700;
       line-height: 1.15;
     }
 
     .dispatch-block {
-      margin-bottom: 20px;
-    }
-
-    .recipient-block {
       margin-bottom: 18px;
     }
 
-    .title {
+    .recipient-block {
+      margin-bottom: 16px;
+    }
+
+    .notice-title {
       text-align: center;
-      font-size: 22px;
+      font-size: 16pt;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       text-decoration: underline;
       margin: 12px 0 14px;
     }
 
     .subject {
       font-weight: 700;
-      margin-bottom: 14px;
       text-align: justify;
+      margin-bottom: 12px;
     }
 
     p {
-      margin: 0 0 10px;
+      margin: 0 0 9px;
       text-align: justify;
+      orphans: 3;
+      widows: 3;
     }
 
     .salutation {
-      margin: 8px 0 10px;
+      margin: 8px 0 9px;
     }
 
     .clause {
       display: grid;
-      grid-template-columns: 32px 1fr;
-      gap: 9px;
-      margin-bottom: 10px;
-      page-break-inside: avoid;
+      grid-template-columns: 28px 1fr;
+      column-gap: 8px;
+      margin: 0 0 9px;
       break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .clause-number {
       font-weight: 700;
     }
 
+    .clause-text {
+      text-align: justify;
+    }
+
     .subclauses {
-      margin-top: 8px;
+      margin-top: 7px;
     }
 
     .subclause {
       display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 8px;
-      margin-bottom: 6px;
-      page-break-inside: avoid;
+      grid-template-columns: 34px 1fr;
+      column-gap: 7px;
+      margin-bottom: 5px;
       break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .strong-demand {
@@ -156,154 +177,179 @@
     }
 
     .closing {
-      margin-top: 16px;
-      page-break-inside: avoid;
+      margin-top: 14px;
       break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .signature-area {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 30px;
       margin-top: 34px;
-      page-break-inside: avoid;
       break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .place {
-      width: 42%;
-      align-self: flex-end;
+      align-self: end;
     }
 
     .signature-block {
-      width: 50%;
-      text-align: left;
       position: relative;
-      min-height: 145px;
-      padding-top: 4px;
+      min-height: 160px;
     }
 
     .signature-title {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
-    .signature-stamp-layer {
+    .signature-visual-area {
       position: relative;
-      width: 100%;
-      min-height: 84px;
-      margin-bottom: 4px;
-    }
-
-    #stampPreview {
-      position: absolute;
-      left: 88px;
-      top: 4px;
-      width: 118px;
-      height: 118px;
-      object-fit: contain;
-      display: none;
-      opacity: 0.86;
-      transform: rotate(-5deg);
-      filter: saturate(1.15) contrast(1.05);
-      z-index: 1;
+      height: 94px;
+      margin-bottom: 6px;
     }
 
     #signaturePreview {
       position: absolute;
       left: 0;
-      top: 18px;
-      max-width: 215px;
-      max-height: 76px;
-      display: none;
+      top: 20px;
+      max-width: 210px;
+      max-height: 70px;
       object-fit: contain;
-      filter: saturate(1.28) contrast(1.06);
-      z-index: 2;
-    }
-
-    .signature-space {
-      height: 76px;
-      margin-bottom: 6px;
-    }
-
-    .printed-name {
-      font-weight: 700;
-      font-size: 16px;
-      position: relative;
+      display: none;
       z-index: 3;
+      filter: saturate(1.25) contrast(1.08);
     }
 
-    .designation-line {
-      position: relative;
-      z-index: 3;
-    }
-
-    .seal-placeholder {
+    #stampPreview {
       position: absolute;
-      left: 88px;
-      top: 4px;
-      width: 118px;
-      height: 118px;
+      left: 84px;
+      top: 0;
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+      display: none;
+      opacity: 0.82;
+      transform: rotate(-5deg);
+      z-index: 2;
+      filter: saturate(1.15) contrast(1.08);
+    }
+
+    .stamp-placeholder {
+      position: absolute;
+      left: 84px;
+      top: 0;
+      width: 112px;
+      height: 112px;
       border: 1px dashed #aaa;
       border-radius: 50%;
+      color: #777;
+      opacity: 0.32;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-family: Arial, sans-serif;
-      font-size: 9px;
-      line-height: 1.2;
-      color: #777;
-      opacity: 0.35;
       transform: rotate(-5deg);
-      z-index: 0;
+    }
+
+    .printed-name {
+      font-weight: 700;
+      font-size: 12.5pt;
+    }
+
+    .designation-line {
+      font-size: 12pt;
+    }
+
+    .small-print {
+      margin-top: 24px;
+      border-top: 1px solid #ddd;
+      padding-top: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 9.5px;
+      color: #555;
+      display: none;
     }
 
     @page {
-      size: A4;
-      margin: 0;
+      size: A4 portrait;
+      margin: 20mm 22mm 20mm 22mm;
     }
 
     @media print {
+      html,
       body {
         background: #fff;
+        font-size: 12pt;
+        line-height: 1.45;
       }
 
       .toolbar {
-        display: none;
+        display: none !important;
       }
 
-      .page-wrapper {
+      .screen-shell {
         padding: 0;
       }
 
-      #notice {
+      .page {
         width: auto;
         min-height: auto;
         margin: 0;
+        padding: 0;
         box-shadow: none;
-        padding: 20mm 22mm 18mm 22mm;
+        background: #fff;
       }
 
-      .seal-placeholder {
-        display: none;
+      .notice-content {
+        width: 100%;
+      }
+
+      .stamp-placeholder {
+        display: none !important;
+      }
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+
+      p,
+      .clause,
+      .subclause,
+      .signature-area {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .notice-title,
+      .advocate-block,
+      .dispatch-block,
+      .recipient-block,
+      .subject {
+        break-after: avoid;
+        page-break-after: avoid;
       }
     }
 
     @media screen and (max-width: 850px) {
-      #notice {
+      .screen-shell {
+        padding: 12px 0;
+      }
+
+      .page {
         width: 100%;
-        padding: 18mm 10mm;
+        min-height: auto;
+        padding: 16mm 10mm;
+        box-shadow: none;
       }
 
       .signature-area {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .place,
-      .signature-block {
-        width: 100%;
+        grid-template-columns: 1fr;
+        row-gap: 18px;
       }
     }
   </style>
@@ -323,296 +369,296 @@
     <button type="button" onclick="window.print()">Print</button>
 
     <div class="toolbar-note">
-      Upload signature/stamp only if actually authorized or provided by the advocate.
-      This file is a draft-formatting tool; the final notice should be reviewed, approved, signed, stamped and issued by the advocate before sending.
+      Use signature/stamp images only if actually authorized or provided by the advocate.
+      For the cleanest PDF: click Download PDF → choose “Save as PDF” → Paper A4 → Margins Default → Scale 100 → Background graphics ON.
     </div>
   </div>
 
-  <div class="page-wrapper">
-    <main id="notice">
+  <div class="screen-shell">
+    <article class="page">
+      <div class="notice-content">
 
-      <section class="advocate-block">
-        <div class="advocate-name">N Prakash Reddy</div>
-        <div>Senior Advocate</div>
-        <div>D.No 10, 57, Maruthi Nagar, Avilali, Andhra Pradesh 517502</div>
-      </section>
+        <section class="advocate-block">
+          <div class="advocate-name">N Prakash Reddy</div>
+          <div>Senior Advocate</div>
+          <div>D.No 10, 57, Maruthi Nagar, Avilali, Andhra Pradesh 517502</div>
+        </section>
 
-      <section class="dispatch-block">
-        <div><strong>Date:</strong> 10/05/2026</div>
-        <div><strong>By Registered Post A/D and Speed Post</strong></div>
-      </section>
+        <section class="dispatch-block">
+          <div><strong>Date:</strong> 10/05/2026</div>
+          <div><strong>By Registered Post A/D and Speed Post</strong></div>
+        </section>
 
-      <section class="recipient-block">
-        <div>To,</div>
-        <div>Mr. Sangaraju Ramachandra Raju</div>
-        <div>20-1-416/1b, Subhash Nagar, Korlagunta, Tirupati - 517501</div>
-      </section>
+        <section class="recipient-block">
+          <div>To,</div>
+          <div>Mr. Sangaraju Ramachandra Raju</div>
+          <div>20-1-416/1b, Subhash Nagar, Korlagunta, Tirupati - 517501</div>
+        </section>
 
-      <div class="title">LEGAL NOTICE</div>
+        <div class="notice-title">LEGAL NOTICE</div>
 
-      <div class="subject">
-        Subject: Legal Notice calling upon you to forthwith cease verbal abuse, mental harassment,
-        self-harm threats, intimidation, alcohol consumption, alcohol-induced disturbance and
-        related unlawful conduct.
-      </div>
-
-      <div class="salutation">Sir,</div>
-
-      <p>
-        Under instructions and on behalf of my client Mr. Sangaraju Vikram Varma,
-        aged about 29 years, son of yourself, residing at 20-1-416/1b, Subhash Nagar,
-        Korlagunta, Tirupati - 517501, I hereby issue you this Legal Notice as under:
-      </p>
-
-      <div class="clause">
-        <div class="clause-number">1.</div>
-        <div>
-          That you are the father of my client and husband of Mrs. Pushpa Kumari Muddaloor,
-          and the parties are members of the same family/household. My client states that he
-          has always acted with concern, patience, responsibility and restraint towards you
-          and towards the welfare of the family.
+        <div class="subject">
+          Subject: Legal Notice calling upon you to forthwith cease verbal abuse, mental harassment,
+          self-harm threats, intimidation, alcohol consumption, alcohol-induced disturbance and
+          related unlawful conduct.
         </div>
-      </div>
 
-      <div class="clause">
-        <div class="clause-number">2.</div>
-        <div>
-          That for a considerable period, you have been habitually and excessively consuming
-          alcohol, and under its influence, you have been repeatedly subjecting my client and
-          other family members to verbal abuse, intimidation, mental cruelty, emotional
-          harassment and severe disturbance of domestic peace.
-        </div>
-      </div>
+        <div class="salutation">Sir,</div>
 
-      <div class="clause">
-        <div class="clause-number">3.</div>
-        <div>
-          That my client states that you have, on several occasions, refused to take proper
-          food and have consumed alcohol instead, thereby worsening your health condition and
-          causing repeated anxiety, fear, distress and disturbance to the family members.
-        </div>
-      </div>
+        <p>
+          Under instructions and on behalf of my client Mr. Sangaraju Vikram Varma,
+          aged about 29 years, son of yourself, residing at 20-1-416/1b, Subhash Nagar,
+          Korlagunta, Tirupati - 517501, I hereby issue you this Legal Notice as under:
+        </p>
 
-      <div class="clause">
-        <div class="clause-number">4.</div>
-        <div>
-          That my client further states that on multiple occasions you have threatened to
-          commit suicide and/or self-harm, thereby causing fear, panic, emotional trauma and
-          serious mental agony to my client and the family members. Such threats have created
-          alarm and have compelled the family to respond under distress and fear for your safety.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">5.</div>
-        <div>
-          That whenever your health condition deteriorates due to alcohol consumption, the
-          family members, out of concern and responsibility, have taken you to hospital for
-          medical assistance. However, you have repeatedly refused to cooperate with medical
-          treatment, insisted upon discontinuation/removal of saline and other medical care
-          within a short span of approximately 10 to 15 minutes, disturbed hospital staff,
-          returned home, and thereafter resumed alcohol consumption.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">6.</div>
-        <div>
-          That the aforesaid conduct has resulted in a repeated harmful cycle, endangering
-          your own safety and health while also causing grave disturbance, fear, humiliation,
-          emotional stress, mental harassment, insecurity and loss of peace to my client and
-          the family.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">7.</div>
-        <div>
-          That my client and the family members have repeatedly attempted to handle the matter
-          within the family and through medical assistance, but your continued consumption of
-          alcohol, refusal to cooperate with treatment, abusive conduct and self-harm threats
-          have made the situation unbearable and unsafe for the household.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">8.</div>
-        <div>
-          That my client states that your conduct has also caused serious distress to
-          Mrs. Pushpa Kumari Muddaloor and other family members. The female members of the
-          household, including Mrs. Pushpa Kumari Muddaloor, reserve their independent remedies
-          under the Protection of Women from Domestic Violence Act, 2005, including remedies for
-          verbal, emotional, mental and economic abuse, as may be available in accordance with law.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">9.</div>
-        <div>
-          That your acts, if continued, may attract appropriate civil, criminal, preventive
-          and other legal proceedings, including but not limited to action under Section 351
-          and Section 352 of the Bharatiya Nyaya Sanhita, 2023, preventive proceedings under
-          Section 126 and other applicable provisions of the Bharatiya Nagarik Suraksha Sanhita,
-          2023, remedies available to the female members under the Protection of Women from
-          Domestic Violence Act, 2005, and emergency medical/legal intervention under applicable
-          provisions of the Mental Healthcare Act, 2017, including Section 94, where circumstances
-          so require.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">10.</div>
-        <div>
-          That my client specifically states that your repeated alcohol consumption is the root
-          cause of the recurring disturbance, abuse, hospital emergencies, self-harm threats and
-          mental agony caused to the family. Therefore, my client and the family members
-          <span class="strong-demand">specifically and categorically demand that you immediately stop consumption of alcohol at once</span>,
-          refrain from procuring or consuming alcohol in any manner, and cooperate with appropriate
-          medical, psychiatric and de-addiction treatment as may be advised by qualified medical
-          practitioners.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">11.</div>
-        <div>
-          You are therefore hereby called upon to:
-
-          <div class="subclauses">
-
-            <div class="subclause">
-              <div>(a)</div>
-              <div>
-                <strong>immediately stop consumption of alcohol at once</strong> and refrain from
-                purchasing, procuring, storing or consuming alcohol in any form;
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(b)</div>
-              <div>
-                <strong>immediately stop all verbal abuse, mental cruelty, emotional harassment,
-                intimidation and insulting behaviour</strong> towards my client,
-                Mrs. Pushpa Kumari Muddaloor and other family members;
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(c)</div>
-              <div>
-                <strong>immediately stop making threats of suicide, self-harm, violence,
-                intimidation or any other threat</strong> intended to create fear, panic, alarm
-                or emotional pressure upon my client and the family members;
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(d)</div>
-              <div>
-                <strong>immediately stop causing nuisance, disturbance, harassment or breach of peace</strong>
-                at home, in hospitals, towards attending medical staff, neighbours, relatives or any
-                other person connected with the family;
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(e)</div>
-              <div>
-                <strong>fully cooperate with proper food intake, medical evaluation, psychiatric assessment,
-                de-addiction treatment and all professional medical intervention</strong> as may be advised
-                by qualified doctors, hospitals, counsellors or de-addiction specialists;
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(f)</div>
-              <div>
-                <strong>not endanger yourself, my client, Mrs. Pushpa Kumari Muddaloor, other family members,
-                hospital staff or any third person</strong> by intoxicated conduct, refusal of treatment,
-                self-harm threats, abusive behaviour, panic creation or repeated crisis situations;
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(g)</div>
-              <div>
-                not compel, threaten, manipulate or emotionally pressurize my client or family members
-                through alcohol consumption, threats, abuse, refusal of treatment or repeated emergency
-                situations; and
-              </div>
-            </div>
-
-            <div class="subclause">
-              <div>(h)</div>
-              <div>
-                maintain peace, dignity, discipline, safety and lawful conduct within the household
-                at all times.
-              </div>
-            </div>
-
+        <div class="clause">
+          <div class="clause-number">1.</div>
+          <div class="clause-text">
+            That you are the father of my client and husband of Mrs. Pushpa Kumari Muddaloor,
+            and the parties are members of the same family/household. My client states that he
+            has always acted with concern, patience, responsibility and restraint towards you
+            and towards the welfare of the family.
           </div>
         </div>
-      </div>
 
-      <div class="clause">
-        <div class="clause-number">12.</div>
-        <div>
-          Take further notice that any future threat of suicide or self-harm shall be treated by
-          my client and the family as a medical and legal emergency, and shall be immediately
-          reported to the police, emergency medical services, hospital authorities and appropriate
-          mental health authorities, without any further reference to you.
-        </div>
-      </div>
-
-      <div class="clause">
-        <div class="clause-number">13.</div>
-        <div>
-          You are hereby called upon to comply with the above demands within 7 (seven) days from
-          the date of receipt of this Notice, failing which my client shall be constrained to
-          initiate such civil, criminal, preventive, medical/legal and other proceedings as may
-          be advised, including approaching the police, Executive Magistrate, hospital/mental
-          health authorities and other competent forums, for protection of the safety, dignity,
-          peace and wellbeing of my client and the family, entirely at your risk as to all costs
-          and consequences, and without any further notice.
-        </div>
-      </div>
-
-      <p class="closing">
-        This Notice is issued to you without prejudice to all other rights, claims, contentions
-        and remedies of my client and other affected family members in law and in equity.
-      </p>
-
-      <section class="signature-area">
-        <div class="place">
-          <strong>Place:</strong> Tirupati
+        <div class="clause">
+          <div class="clause-number">2.</div>
+          <div class="clause-text">
+            That for a considerable period, you have been habitually and excessively consuming
+            alcohol, and under its influence, you have been repeatedly subjecting my client and
+            other family members to verbal abuse, intimidation, mental cruelty, emotional
+            harassment and severe disturbance of domestic peace.
+          </div>
         </div>
 
-        <div class="signature-block">
-          <div class="signature-title">Yours faithfully,</div>
+        <div class="clause">
+          <div class="clause-number">3.</div>
+          <div class="clause-text">
+            That my client states that you have, on several occasions, refused to take proper
+            food and have consumed alcohol instead, thereby worsening your health condition and
+            causing repeated anxiety, fear, distress and disturbance to the family members.
+          </div>
+        </div>
 
-          <div class="signature-stamp-layer">
-            <div id="sealPlaceholder" class="seal-placeholder">
-              Advocate Seal<br />/ Office Stamp
+        <div class="clause">
+          <div class="clause-number">4.</div>
+          <div class="clause-text">
+            That my client further states that on multiple occasions you have threatened to
+            commit suicide and/or self-harm, thereby causing fear, panic, emotional trauma and
+            serious mental agony to my client and the family members. Such threats have created
+            alarm and have compelled the family to respond under distress and fear for your safety.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">5.</div>
+          <div class="clause-text">
+            That whenever your health condition deteriorates due to alcohol consumption, the
+            family members, out of concern and responsibility, have taken you to hospital for
+            medical assistance. However, you have repeatedly refused to cooperate with medical
+            treatment, insisted upon discontinuation/removal of saline and other medical care
+            within a short span of approximately 10 to 15 minutes, disturbed hospital staff,
+            returned home, and thereafter resumed alcohol consumption.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">6.</div>
+          <div class="clause-text">
+            That the aforesaid conduct has resulted in a repeated harmful cycle, endangering
+            your own safety and health while also causing grave disturbance, fear, humiliation,
+            emotional stress, mental harassment, insecurity and loss of peace to my client and
+            the family.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">7.</div>
+          <div class="clause-text">
+            That my client and the family members have repeatedly attempted to handle the matter
+            within the family and through medical assistance, but your continued consumption of
+            alcohol, refusal to cooperate with treatment, abusive conduct and self-harm threats
+            have made the situation unbearable and unsafe for the household.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">8.</div>
+          <div class="clause-text">
+            That my client states that your conduct has also caused serious distress to
+            Mrs. Pushpa Kumari Muddaloor and other family members. The female members of the
+            household, including Mrs. Pushpa Kumari Muddaloor, reserve their independent remedies
+            under the Protection of Women from Domestic Violence Act, 2005, including remedies for
+            verbal, emotional, mental and economic abuse, as may be available in accordance with law.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">9.</div>
+          <div class="clause-text">
+            That your acts, if continued, may attract appropriate civil, criminal, preventive
+            and other legal proceedings, including but not limited to action under Section 351
+            and Section 352 of the Bharatiya Nyaya Sanhita, 2023, preventive proceedings under
+            Section 126 and other applicable provisions of the Bharatiya Nagarik Suraksha Sanhita,
+            2023, remedies available to the female members under the Protection of Women from
+            Domestic Violence Act, 2005, and emergency medical/legal intervention under applicable
+            provisions of the Mental Healthcare Act, 2017, including Section 94, where circumstances
+            so require.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">10.</div>
+          <div class="clause-text">
+            That my client specifically states that your repeated alcohol consumption is the root
+            cause of the recurring disturbance, abuse, hospital emergencies, self-harm threats and
+            mental agony caused to the family. Therefore, my client and the family members
+            <span class="strong-demand">specifically and categorically demand that you immediately stop consumption of alcohol at once</span>,
+            refrain from procuring or consuming alcohol in any manner, and cooperate with appropriate
+            medical, psychiatric and de-addiction treatment as may be advised by qualified medical
+            practitioners.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">11.</div>
+          <div class="clause-text">
+            You are therefore hereby called upon to:
+
+            <div class="subclauses">
+
+              <div class="subclause">
+                <div>(a)</div>
+                <div>
+                  <strong>immediately stop consumption of alcohol at once</strong> and refrain from
+                  purchasing, procuring, storing or consuming alcohol in any form;
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(b)</div>
+                <div>
+                  <strong>immediately stop all verbal abuse, mental cruelty, emotional harassment,
+                  intimidation and insulting behaviour</strong> towards my client,
+                  Mrs. Pushpa Kumari Muddaloor and other family members;
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(c)</div>
+                <div>
+                  <strong>immediately stop making threats of suicide, self-harm, violence,
+                  intimidation or any other threat</strong> intended to create fear, panic, alarm
+                  or emotional pressure upon my client and the family members;
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(d)</div>
+                <div>
+                  <strong>immediately stop causing nuisance, disturbance, harassment or breach of peace</strong>
+                  at home, in hospitals, towards attending medical staff, neighbours, relatives or any
+                  other person connected with the family;
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(e)</div>
+                <div>
+                  <strong>fully cooperate with proper food intake, medical evaluation, psychiatric assessment,
+                  de-addiction treatment and all professional medical intervention</strong> as may be advised
+                  by qualified doctors, hospitals, counsellors or de-addiction specialists;
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(f)</div>
+                <div>
+                  <strong>not endanger yourself, my client, Mrs. Pushpa Kumari Muddaloor, other family members,
+                  hospital staff or any third person</strong> by intoxicated conduct, refusal of treatment,
+                  self-harm threats, abusive behaviour, panic creation or repeated crisis situations;
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(g)</div>
+                <div>
+                  not compel, threaten, manipulate or emotionally pressurize my client or family members
+                  through alcohol consumption, threats, abuse, refusal of treatment or repeated emergency
+                  situations; and
+                </div>
+              </div>
+
+              <div class="subclause">
+                <div>(h)</div>
+                <div>
+                  maintain peace, dignity, discipline, safety and lawful conduct within the household
+                  at all times.
+                </div>
+              </div>
+
             </div>
+          </div>
+        </div>
 
-            <img id="stampPreview" alt="Authorized Advocate Stamp or Seal" />
-            <img id="signaturePreview" alt="Authorized Advocate Signature" />
-            <div id="signatureSpace" class="signature-space"></div>
+        <div class="clause">
+          <div class="clause-number">12.</div>
+          <div class="clause-text">
+            Take further notice that any future threat of suicide or self-harm shall be treated by
+            my client and the family as a medical and legal emergency, and shall be immediately
+            reported to the police, emergency medical services, hospital authorities and appropriate
+            mental health authorities, without any further reference to you.
+          </div>
+        </div>
+
+        <div class="clause">
+          <div class="clause-number">13.</div>
+          <div class="clause-text">
+            You are hereby called upon to comply with the above demands within 7 (seven) days from
+            the date of receipt of this Notice, failing which my client shall be constrained to
+            initiate such civil, criminal, preventive, medical/legal and other proceedings as may
+            be advised, including approaching the police, Executive Magistrate, hospital/mental
+            health authorities and other competent forums, for protection of the safety, dignity,
+            peace and wellbeing of my client and the family, entirely at your risk as to all costs
+            and consequences, and without any further notice.
+          </div>
+        </div>
+
+        <p class="closing">
+          This Notice is issued to you without prejudice to all other rights, claims, contentions
+          and remedies of my client and other affected family members in law and in equity.
+        </p>
+
+        <section class="signature-area">
+          <div class="place">
+            <strong>Place:</strong> Tirupati
           </div>
 
-          <div class="printed-name">N Prakash Reddy</div>
-          <div class="designation-line">Senior Advocate</div>
-          <div class="designation-line">Counsel for the Notice Sender</div>
-        </div>
-      </section>
+          <div class="signature-block">
+            <div class="signature-title">Yours faithfully,</div>
 
-    </main>
+            <div class="signature-visual-area">
+              <div id="sealPlaceholder" class="stamp-placeholder">
+                Advocate Seal<br />/ Office Stamp
+              </div>
+
+              <img id="stampPreview" alt="Authorized Advocate Stamp or Seal" />
+              <img id="signaturePreview" alt="Authorized Advocate Signature" />
+            </div>
+
+            <div class="printed-name">N Prakash Reddy</div>
+            <div class="designation-line">Senior Advocate</div>
+            <div class="designation-line">Counsel for the Notice Sender</div>
+          </div>
+        </section>
+
+      </div>
+    </article>
   </div>
 
   <script>
     const signatureInput = document.getElementById("signatureInput");
     const signaturePreview = document.getElementById("signaturePreview");
-    const signatureSpace = document.getElementById("signatureSpace");
 
     const stampInput = document.getElementById("stampInput");
     const stampPreview = document.getElementById("stampPreview");
@@ -620,73 +666,31 @@
 
     signatureInput.addEventListener("change", function () {
       const file = this.files && this.files[0];
-
-      if (!file) {
-        return;
-      }
+      if (!file) return;
 
       const reader = new FileReader();
-
       reader.onload = function (event) {
         signaturePreview.src = event.target.result;
         signaturePreview.style.display = "block";
-        signatureSpace.style.display = "none";
       };
-
       reader.readAsDataURL(file);
     });
 
     stampInput.addEventListener("change", function () {
       const file = this.files && this.files[0];
-
-      if (!file) {
-        return;
-      }
+      if (!file) return;
 
       const reader = new FileReader();
-
       reader.onload = function (event) {
         stampPreview.src = event.target.result;
         stampPreview.style.display = "block";
         sealPlaceholder.style.display = "none";
       };
-
       reader.readAsDataURL(file);
     });
 
     function downloadPDF() {
-      const element = document.getElementById("notice");
-
-      const options = {
-        margin: [0, 0, 0, 0],
-        filename: "Legal_Notice_Sangaraju_Ramachandra_Raju.pdf",
-        image: {
-          type: "jpeg",
-          quality: 0.98
-        },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          letterRendering: true,
-          scrollY: 0,
-          backgroundColor: "#ffffff"
-        },
-        jsPDF: {
-          unit: "mm",
-          format: "a4",
-          orientation: "portrait",
-          compress: true
-        },
-        pagebreak: {
-          mode: ["css", "legacy"],
-          avoid: [".clause", ".subclause", ".signature-area"]
-        }
-      };
-
-      html2pdf()
-        .set(options)
-        .from(element)
-        .save();
+      window.print();
     }
   </script>
 
